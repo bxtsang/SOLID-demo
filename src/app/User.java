@@ -7,11 +7,13 @@ public class User {
     private final String name;
     private final String email;
     private final String password;
+    private final boolean isSuper;
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, boolean isSuper) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.isSuper = isSuper;
     }
 
     public void registerUser() {
@@ -53,6 +55,15 @@ public class User {
         }
 
         return true;
+    }
+
+    // open closed
+    public void performTask(TaskType taskType) throws Exception {
+        if (!this.isSuper) {
+            if (taskType == TaskType.HardTask) {
+                throw new Exception("I cannot do this");
+            }
+        }
     }
 
     public String getName() {
