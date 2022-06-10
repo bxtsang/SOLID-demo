@@ -4,10 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class User {
-    private final String name;
-    private final String email;
-    private final String password;
-    private final boolean isSuper;
+    private String name;
+    private String email;
+    private String password;
+    private boolean isSuper;
 
     public User(String name, String email, String password, boolean isSuper) {
         this.name = name;
@@ -60,7 +60,7 @@ public class User {
     // open closed
     public void performTask(TaskType taskType) throws Exception {
         if (!this.isSuper) {
-            if (taskType == TaskType.HardTask) {
+            if (taskType == TaskType.Difficult) {
                 throw new Exception("I cannot do this");
             }
         }
