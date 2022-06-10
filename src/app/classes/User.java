@@ -1,4 +1,4 @@
-package app;
+package app.classes;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +22,8 @@ public class User {
         }
 
         // some code to add to database
+        System.out.println("Registered user with name: " + this.name);
+
         // send an email to welcome user
         this.sendEmail();
     }
@@ -29,6 +31,7 @@ public class User {
     public void sendEmail() {
         String message = "Hello " + name + ", welcome to this app!";
         //some code to send the email
+        System.out.println("Sent email with message: " + message);
     }
 
     public boolean isValid() {

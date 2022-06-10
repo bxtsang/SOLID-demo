@@ -1,4 +1,4 @@
-package app;
+package app.classes;
 
 public enum TaskType {
     Simple,
