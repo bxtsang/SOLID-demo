@@ -41,6 +41,7 @@ public class User {
         Matcher emailMatcher = emailPattern.matcher(email);
 
         if (!emailMatcher.matches()) {
+            System.out.println("Email is not valid!");
             return false;
         }
 
@@ -54,6 +55,7 @@ public class User {
         Matcher passwordMatcher = passwordPattern.matcher(password);
 
         if (!passwordMatcher.matches()) {
+            System.out.println("Password is not valid!");
             return false;
         }
 
@@ -61,22 +63,24 @@ public class User {
     }
 
     // open closed
-    public void performTask(TaskType taskType) throws Exception {
+    public void performTask(TaskType taskType) {
         if (!this.isSuper) {
             if (taskType == TaskType.Difficult) {
-                throw new Exception("I cannot do this");
+                System.out.println("I am struggling... \uD83D\uDE2D");
+                return;
             }
         }
+        System.out.println("This is ok!");
     }
+
+
 
     public String getName() {
         return name;
     }
-
     public String getEmail() {
         return email;
     }
-
     public String getPassword() {
         return password;
     }
